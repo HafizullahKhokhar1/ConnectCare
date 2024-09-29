@@ -3,37 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConnectCare</title>
+    <title>ConnectCare - Bilingual</title>
+    <!-- Google Fonts for Stylish Logo -->
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            color: #0044cc;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: #0044cc;
+            padding: 10px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #002a80;
+        }
+
+        /* Language Switcher */
+        .language-switcher {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .language-switcher button {
+            padding: 10px 15px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .language-switcher button:hover {
+            background-color: #e65c00;
+        }
+
+        /* Stylish Logo */
+        .logo {
+            font-family: 'Lobster', cursive;
+            font-size: 2.5em;
+            color: #ff6600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Slider Styles */
+        .slider-container {
+            position: relative;
+            max-width: 100%;
+            height: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 1s ease;
+        }
+
+        .slides img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Arrow buttons */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            cursor: pointer;
+            z-index: 10;
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+        .arrow-left {
+            left: 20px;
+        }
+
+        .arrow-right {
+            right: 20px;
+        }
+
+        /* Dots for Slider */
+        .dots {
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+        }
+
+        .dot {
+            display: inline-block;
+            height: 15px;
+            width: 15px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .active {
+            background-color: #0044cc;
+        }
+
+        /* Container for main section */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Landing Page */
+        .landing-page {
+            padding: 50px;
+            background-color: #e6f7ff;
+        }
+
+        .landing-content {
+            max-width: 50%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .landing-content h1 {
+            font-size: 2.5em;
+        }
+
+        button.cta-btn {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button.cta-btn:hover {
+            background-color: #e65c00;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section h1, section h2 {
+            margin-bottom: 20px;
+        }
+
+        .problem, .solution, .milestones {
+            background-color: #fff;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        /* Team Section Styles */
+        .team {
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .team h1 {
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+
+        .team-member h3 {
+            margin: 10px 0 5px;
+            font-size: 1.4em;
+            color: #0044cc;
+        }
+
+        .team-member p {
+            font-size: 1em;
+            color: #666;
+            margin: 0;
+        }
+
+        /* Facilities Section Icons */
+        .facility-list {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .facility-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            max-width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .facility-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .facility-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            background-color: #e6f7ff;
+            text-align: center;
+        }
+
+        .contact h1 {
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #0044cc;
+        }
+
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact label {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            border-color: #0044cc;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 68, 204, 0.2);
+        }
+
+        .contact input[type="submit"] {
+            background-color: #0044cc;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact input[type="submit"]:hover {
+            background-color: #002a80;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0044cc;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .landing-content, .container {
+                max-width: 100%;
+                padding: 10px;
+            }
+            .facility-item, .team-member {
+                max-width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation Bar -->
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#problem">Problem</a></li>
-                <li><a href="#solution">Solution</a></li>
-                <li><a href="#milestones">Milestones</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#facilities">Facilities</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" id="navHome">Home</a></li>
+                <li><a href="#about" id="navAbout">About</a></li>
+                <li><a href="#problem" id="navProblem">Problem</a></li>
+                <li><a href="#solution" id="navSolution">Solution</a></li>
+                <li><a href="#milestones" id="navMilestones">Milestones</a></li>
+                <li><a href="#team" id="navTeam">Team</a></li>
+                <li><a href="#facilities" id="navFacilities">Facilities</a></li>
+                <li><a href="#contact" id="navContact">Contact</a></li>
             </ul>
         </nav>
+        <div class="language-switcher">
+            <button id="languageSwitcher">Switch to Sindhi</button>
+        </div>
     </header>
 
     <!-- Logo Section -->
-    <div class="logo">ConnectCare</div>
+    <div class="logo" id="logoText">ConnectCare</div>
 
     <!-- Landing Section with Large Slider -->
     <section id="home" class="landing-page">
         <div class="landing-content">
-            <h1>Welcome to ConnectCare</h1>
-            <p>We bring healthcare to the most remote communities in need. Learn more about our mission and how you can help.</p>
-            <button class="cta-btn">Learn More</button>
-            <button class="cta-btn">Join Us</button>
+            <h1 id="welcomeText">Welcome to ConnectCare</h1>
+            <p id="missionText">We bring healthcare to the most remote communities in need. Learn more about our mission and how you can help.</p>
+            <button class="cta-btn" id="learnMoreBtn">Learn More</button>
+            <button class="cta-btn" id="joinUsBtn">Join Us</button>
         </div>
     </section>
 
@@ -61,100 +442,100 @@
 
     <!-- About Section -->
     <section id="about" class="container">
-        <h1>About ConnectCare</h1>
-        <p>ConnectCare is a healthcare initiative aiming to gather essential data from rural areas where people lack access to basic healthcare and facilities. We provide solutions to connect healthcare providers with these underserved communities, ensuring they receive the care they deserve.</p>
+        <h1 id="aboutTitle">About ConnectCare</h1>
+        <p id="aboutDescription">ConnectCare is a healthcare initiative aiming to gather essential data from rural areas where people lack access to basic healthcare and facilities. We provide solutions to connect healthcare providers with these underserved communities, ensuring they receive the care they deserve.</p>
     </section>
 
     <!-- Problem Statement Section -->
     <section id="problem" class="problem container">
-        <h1>Problem Statement</h1>
-        <p>In many rural areas, such as Tharparkar, people still die from preventable diseases like fever due to a lack of healthcare infrastructure. Over 90% of the population drinks contaminated water, leading to widespread health issues. Additionally, mismanagement of resources and aid, such as the Benazir Income Support Program, often means the funds don't reach the people who need them the most.</p>
+        <h1 id="problemTitle">Problem Statement</h1>
+        <p id="problemDescription">In many rural areas, such as Tharparkar, people still die from preventable diseases like fever due to a lack of healthcare infrastructure. Over 90% of the population drinks contaminated water, leading to widespread health issues.</p>
     </section>
 
     <!-- Solution Section -->
     <section id="solution" class="solution container">
-        <h1>Our Solution</h1>
-        <p>ConnectCare provides a digital platform that collects health data from remote regions and connects healthcare providers, NGOs, and government agencies. This allows these entities to step in and provide support more effectively.</p>
+        <h1 id="solutionTitle">Our Solution</h1>
+        <p id="solutionDescription">ConnectCare provides a digital platform that collects health data from remote regions and connects healthcare providers, NGOs, and government agencies. This allows these entities to step in and provide support more effectively.</p>
     </section>
 
     <!-- Milestones Section -->
     <section id="milestones" class="milestones container">
-        <h1>Milestones</h1>
+        <h1 id="milestonesTitle">Milestones</h1>
         <ul>
-            <li>Launch our health-tech platform, offering virtual consultations and personalized care plans.</li>
-            <li>Connect with healthcare providers and reach over 1 million individuals in remote areas.</li>
-            <li>Establish partnerships with NGOs, banks, and government organizations to extend services and generate revenue through ads and awareness campaigns.</li>
+            <li id="milestone1">Launch our health-tech platform, offering virtual consultations and personalized care plans.</li>
+            <li id="milestone2">Connect with healthcare providers and reach over 1 million individuals in remote areas.</li>
+            <li id="milestone3">Establish partnerships with NGOs, banks, and government organizations to extend services and generate revenue.</li>
         </ul>
     </section>
 
     <!-- Team Section -->
     <section id="team" class="team container">
-        <h1>Meet the Team</h1>
+        <h1 id="teamTitle">Meet the Team</h1>
         <div class="team-container">
             <div class="team-member">
                 <img src="aman.jpg" alt="Team Member 1">
-                <h3>Aman Kumar</h3>
-                <p>Founder | Lead</p>
+                <h3 id="teamMember1Name">Aman Kumar</h3>
+                <p id="teamMember1Role">Founder | Lead</p>
             </div>
             <div class="team-member">
                 <img src="Hafeez Khokhar.png" alt="Team Member 2">
-                <h3>Hafizullah Khokhar</h3>
-                <p>Co-founder | Manager</p>
+                <h3 id="teamMember2Name">Hafizullah Khokhar</h3>
+                <p id="teamMember2Role">Co-founder | Manager</p>
             </div>
             <div class="team-member">
                 <img src="Deepak Gir.jpg" alt="Team Member 3">
-                <h3>Deepak Gir</h3>
-                <p>Content Creator</p>
+                <h3 id="teamMember3Name">Deepaj Gir</h3>
+                <p id="teamMember3Role">Content Creator</p>
             </div>
             <div class="team-member">
                 <img src="pic33.jpg" alt="Team Member 4">
-                <h3>Dharam Dan</h3>
-                <p>Marketing Manager</p>
+                <h3 id="teamMember4Name">Dharam Dan</h3>
+                <p id="teamMember4Role">Marketing Manager</p>
             </div>
         </div>
     </section>
 
     <!-- Facilities Section -->
     <section id="facilities" class="facilities container">
-        <h1>Our Facilities</h1>
-        <p>We provide a range of healthcare services, including video consultations, text messaging support, personalized care plans, and emergency medical assistance, all designed to reach the most remote communities.</p>
+        <h1 id="facilitiesTitle">Our Facilities</h1>
+        <p id="facilitiesDescription">We provide a range of healthcare services, including video consultations, text messaging support, personalized care plans, and emergency medical assistance.</p>
         <div class="facility-list">
             <div class="facility-item">
                 <img src="videocall.png" alt="Video Call Facility">
-                <h3>Video Consultations</h3>
-                <p>Our secure video consultation service connects patients with healthcare providers, ensuring they receive the medical attention they need from anywhere.</p>
+                <h3 id="facility1Title">Video Consultations</h3>
+                <p id="facility1Description">Our secure video consultation service connects patients with healthcare providers, ensuring they receive the medical attention they need from anywhere.</p>
             </div>
             <div class="facility-item">
                 <img src="textm.png" alt="Text Message Facility">
-                <h3>Text Messaging</h3>
-                <p>Patients can communicate with doctors via text messages for follow-ups, consultations, and instant advice on their healthcare needs.</p>
+                <h3 id="facility2Title">Text Messaging</h3>
+                <p id="facility2Description">Patients can communicate with doctors via text messages for follow-ups, consultations, and instant advice on their healthcare needs.</p>
             </div>
             <div class="facility-item">
                 <img src="care.png" alt="Personalized Care Plans">
-                <h3>Personalized Care Plans</h3>
-                <p>We create customized care plans based on each patient's health needs, offering them a clear path to improving their health and well-being.</p>
+                <h3 id="facility3Title">Personalized Care Plans</h3>
+                <p id="facility3Description">We create customized care plans based on each patient's health needs, offering them a clear path to improving their health and well-being.</p>
             </div>
             <div class="facility-item">
                 <img src="support.png" alt="Emergency Support">
-                <h3>Emergency Support</h3>
-                <p>In critical situations, our emergency support provides immediate access to medical guidance and assistance, ensuring that patients receive the urgent care they need.</p>
+                <h3 id="facility4Title">Emergency Support</h3>
+                <p id="facility4Description">In critical situations, our emergency support provides immediate access to medical guidance and assistance.</p>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact container">
-        <h1>Contact Us</h1>
+        <h1 id="contactTitle">Contact Us</h1>
         <form id="contactForm" onsubmit="return validateForm()">
-            <label for="name">Name:</label>
+            <label for="name" id="contactNameLabel">Name:</label>
             <input type="text" id="name" name="name" placeholder="Your name..." required>
             <span class="error-message" id="nameError">Please enter your name</span>
 
-            <label for="email">Email:</label>
+            <label for="email" id="contactEmailLabel">Email:</label>
             <input type="email" id="email" name="email" placeholder="Your email..." required>
             <span class="error-message" id="emailError">Please enter a valid email</span>
 
-            <label for="message">Message:</label>
+            <label for="message" id="contactMessageLabel">Message:</label>
             <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
             <span class="error-message" id="messageError">Please enter a message</span>
 
@@ -166,6 +547,129 @@
     <footer>
         <p>&copy; 2024 ConnectCare. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Language Switching -->
+    <script>
+        // English and Sindhi Translations
+        const translations = {
+            sindhi: {
+                logoText: "ڪنيڪٽ ڪيئر",
+                navHome: "گھر",
+                navAbout: "بابت",
+                navProblem: "مسئلو",
+                navSolution: "حل",
+                navMilestones: "سنگ ميل",
+                navTeam: "ٽيم",
+                navFacilities: "سہولتون",
+                navContact: "رابطو",
+                welcomeText: "ڪنيڪٽ ڪيئر ۾ ڀليڪار",
+                missionText: "اسين صحت جي خدمت فراهم ڪندا آهيون جيڪي ضرورت مند علائقن تائين پهچائي رهيا آهن.",
+                learnMoreBtn: "وڌيڪ ڄاڻو",
+                joinUsBtn: "اسان سان شامل ٿيو",
+                aboutTitle: "بابت ڪنيڪٽ ڪيئر",
+                aboutDescription: "ڪنيڪٽ ڪيئر هڪ صحت جي سهولت فراهم ڪرڻ واري منصوبي آهي، جيڪو بنيادي صحت جي ضرورتن جي فراهمي ڪري ٿو.",
+                problemTitle: "مسئلو بيان",
+                problemDescription: "ٿرپارڪر ۾، ڪيترائي ماڻهو روڪٿام جي بيمارين سبب مري رهيا آهن.",
+                solutionTitle: "اسان جو حل",
+                solutionDescription: "ڪنيڪٽ ڪيئر هڪ ڊجيٽل پليٽ فارم فراهم ڪري ٿو جيڪو ريموٽ علائقن مان صحت جا انگ اکر گڏ ڪري ٿو.",
+                milestonesTitle: "سنگ ميل",
+                milestone1: "صحت جي ٽيڪنالاجي پليٽ فارم کي لانچ ڪيو.",
+                milestone2: "1 ملين ماڻهن تائين پهچ.",
+                milestone3: "اين جي اوز، بينڪن ۽ حڪومت سان پارٽنرشپ جو قيام.",
+                teamTitle: "ٽيم سان ملو",
+                teamMember1Name: "امان ڪمار",
+                teamMember1Role: "باني | اڳواڻ",
+                teamMember2Name: "حفيظ الله کوکر",
+                teamMember2Role: "همباني | مينيجر",
+                teamMember3Name: "ديپاج گير",
+                teamMember3Role: "مواد ٺاهيندڙ",
+                teamMember4Name: "ڌرم دان",
+                teamMember4Role: "مارڪيٽنگ مينيجر",
+                facilitiesTitle: "اسان جون سهولتون",
+                facilitiesDescription: "اسين هڪ وسيع رينج جي صحت جي سهولت فراهم ڪريون ٿا.",
+                facility1Title: "وڊيو ڪالون",
+                facility1Description: "اسان جون محفوظ وڊيو ڪالون مريضن کي صحت فراهم ڪرڻ وارن سان ڳنڍين ٿيون.",
+                facility2Title: "پيغام موڪلڻ",
+                facility2Description: "مريض ڊاڪٽرن سان فالو اپس، مشاورت ۽ مشوري لاءِ پيغام موڪلي سگهن ٿا.",
+                facility3Title: "ذاتي خيال منصوبا",
+                facility3Description: "اسان هر مريض لاءِ ذاتي خيال منصوبا ٺاهي رهيا آهيون.",
+                facility4Title: "ايمرجنسي مدد",
+                facility4Description: "تنقيدي حالتن ۾، اسان جي ايمرجنسي مدد تيز طبي مدد فراهم ڪري ٿي.",
+                contactTitle: "اسان سان رابطو ڪريو",
+                contactNameLabel: "نالو:",
+                contactEmailLabel: "ايميل:",
+                contactMessageLabel: "پيغام:"
+            },
+            english: {
+                logoText: "ConnectCare",
+                navHome: "Home",
+                navAbout: "About",
+                navProblem: "Problem",
+                navSolution: "Solution",
+                navMilestones: "Milestones",
+                navTeam: "Team",
+                navFacilities: "Facilities",
+                navContact: "Contact",
+                welcomeText: "Welcome to ConnectCare",
+                missionText: "We bring healthcare to the most remote communities in need. Learn more about our mission and how you can help.",
+                learnMoreBtn: "Learn More",
+                joinUsBtn: "Join Us",
+                aboutTitle: "About ConnectCare",
+                aboutDescription: "ConnectCare is a healthcare initiative aiming to gather essential data from rural areas where people lack access to basic healthcare and facilities.",
+                problemTitle: "Problem Statement",
+                problemDescription: "In many rural areas, such as Tharparkar, people still die from preventable diseases like fever due to a lack of healthcare infrastructure.",
+                solutionTitle: "Our Solution",
+                solutionDescription: "ConnectCare provides a digital platform that collects health data from remote regions and connects healthcare providers, NGOs, and government agencies.",
+                milestonesTitle: "Milestones",
+                milestone1: "Launch our health-tech platform, offering virtual consultations and personalized care plans.",
+                milestone2: "Connect with healthcare providers and reach over 1 million individuals in remote areas.",
+                milestone3: "Establish partnerships with NGOs, banks, and government organizations to extend services and generate revenue.",
+                teamTitle: "Meet the Team",
+                teamMember1Name: "Aman Kumar",
+                teamMember1Role: "Founder | Lead",
+                teamMember2Name: "Hafizullah Khokhar",
+                teamMember2Role: "Co-founder | Manager",
+                teamMember3Name: "Deepaj Gir",
+                teamMember3Role: "Content Creator",
+                teamMember4Name: "Dharam Dan",
+                teamMember4Role: "Marketing Manager",
+                facilitiesTitle: "Our Facilities",
+                facilitiesDescription: "We provide a range of healthcare services, including video consultations, text messaging support, personalized care plans, and emergency medical assistance.",
+                facility1Title: "Video Consultations",
+                facility1Description: "Our secure video consultation service connects patients with healthcare providers, ensuring they receive the medical attention they need from anywhere.",
+                facility2Title: "Text Messaging",
+                facility2Description: "Patients can communicate with doctors via text messages for follow-ups, consultations, and instant advice on their healthcare needs.",
+                facility3Title: "Personalized Care Plans",
+                facility3Description: "We create customized care plans based on each patient's health needs, offering them a clear path to improving their health and well-being.",
+                facility4Title: "Emergency Support",
+                facility4Description: "In critical situations, our emergency support provides immediate access to medical guidance and assistance.",
+                contactTitle: "Contact Us",
+                contactNameLabel: "Name:",
+                contactEmailLabel: "Email:",
+                contactMessageLabel: "Message:"
+            }
+        };
+
+        // Switcher logic
+        const switcherButton = document.getElementById('languageSwitcher');
+        let currentLanguage = 'english';  // Start with English
+
+        switcherButton.addEventListener('click', () => {
+            currentLanguage = currentLanguage === 'english' ? 'sindhi' : 'english';
+            switcherButton.textContent = currentLanguage === 'english' ? 'Switch to Sindhi' : 'Switch to English';
+            applyTranslations();
+        });
+
+        function applyTranslations() {
+            const translation = translations[currentLanguage];
+            Object.keys(translation).forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.textContent = translation[id];
+                }
+            });
+        }
+    </script>
 
     <!-- JavaScript for Slider -->
     <script>
