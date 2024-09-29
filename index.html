@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectCare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#milestones">Milestones</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Logo Section -->
+    <div class="logo">ConnectCare</div>
+
+    <!-- Landing Section with Large Slider -->
+    <section id="home" class="landing-page">
+        <div class="landing-content">
+            <h1>Welcome to ConnectCare</h1>
+            <p>We bring healthcare to the most remote communities in need. Learn more about our mission and how you can help.</p>
+            <button class="cta-btn">Learn More</button>
+            <button class="cta-btn">Join Us</button>
+        </div>
+    </section>
+
+    <!-- Slider Section -->
+    <div class="slider-container">
+        <div class="slides" id="slides">
+            <img src="thar1.jpg" alt="Rural Person 1">
+            <img src="Thar2.png" alt="Rural Person 2">
+            <img src="thar3.png" alt="Rural Person 3">
+            <img src="thar4.png" alt="Rural Person 4">
+        </div>
+
+        <!-- Arrow Buttons -->
+        <button class="arrow arrow-left" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="arrow arrow-right" onclick="changeSlide(1)">&#10095;</button>
+
+        <!-- Dots Navigation -->
+        <div class="dots">
+            <span class="dot" onclick="showSlide(0)"></span>
+            <span class="dot" onclick="showSlide(1)"></span>
+            <span class="dot" onclick="showSlide(2)"></span>
+            <span class="dot" onclick="showSlide(3)"></span>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h1>About ConnectCare</h1>
+        <p>ConnectCare is a healthcare initiative aiming to gather essential data from rural areas where people lack access to basic healthcare and facilities. We provide solutions to connect healthcare providers with these underserved communities, ensuring they receive the care they deserve.</p>
+    </section>
+
+    <!-- Problem Statement Section -->
+    <section id="problem" class="problem container">
+        <h1>Problem Statement</h1>
+        <p>In many rural areas, such as Tharparkar, people still die from preventable diseases like fever due to a lack of healthcare infrastructure. Over 90% of the population drinks contaminated water, leading to widespread health issues. Additionally, mismanagement of resources and aid, such as the Benazir Income Support Program, often means the funds don't reach the people who need them the most.</p>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solution" class="solution container">
+        <h1>Our Solution</h1>
+        <p>ConnectCare provides a digital platform that collects health data from remote regions and connects healthcare providers, NGOs, and government agencies. This allows these entities to step in and provide support more effectively.</p>
+    </section>
+
+    <!-- Milestones Section -->
+    <section id="milestones" class="milestones container">
+        <h1>Milestones</h1>
+        <ul>
+            <li>Launch our health-tech platform, offering virtual consultations and personalized care plans.</li>
+            <li>Connect with healthcare providers and reach over 1 million individuals in remote areas.</li>
+            <li>Establish partnerships with NGOs, banks, and government organizations to extend services and generate revenue through ads and awareness campaigns.</li>
+        </ul>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team container">
+        <h1>Meet the Team</h1>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="aman.jpg" alt="Team Member 1">
+                <h3>Aman Kumar</h3>
+                <p>Founder | Lead</p>
+            </div>
+            <div class="team-member">
+                <img src="Hafeez Khokhar.png" alt="Team Member 2">
+                <h3>Hafizullah Khokhar</h3>
+                <p>Co-founder | Manager</p>
+            </div>
+            <div class="team-member">
+                <img src="Deepak Gir.jpg" alt="Team Member 3">
+                <h3>Deepak Gir</h3>
+                <p>Content Creator</p>
+            </div>
+            <div class="team-member">
+                <img src="pic33.jpg" alt="Team Member 4">
+                <h3>Dharam Dan</h3>
+                <p>Marketing Manager</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities container">
+        <h1>Our Facilities</h1>
+        <p>We provide a range of healthcare services, including video consultations, text messaging support, personalized care plans, and emergency medical assistance, all designed to reach the most remote communities.</p>
+        <div class="facility-list">
+            <div class="facility-item">
+                <img src="videocall.png" alt="Video Call Facility">
+                <h3>Video Consultations</h3>
+                <p>Our secure video consultation service connects patients with healthcare providers, ensuring they receive the medical attention they need from anywhere.</p>
+            </div>
+            <div class="facility-item">
+                <img src="textm.png" alt="Text Message Facility">
+                <h3>Text Messaging</h3>
+                <p>Patients can communicate with doctors via text messages for follow-ups, consultations, and instant advice on their healthcare needs.</p>
+            </div>
+            <div class="facility-item">
+                <img src="care.png" alt="Personalized Care Plans">
+                <h3>Personalized Care Plans</h3>
+                <p>We create customized care plans based on each patient's health needs, offering them a clear path to improving their health and well-being.</p>
+            </div>
+            <div class="facility-item">
+                <img src="support.png" alt="Emergency Support">
+                <h3>Emergency Support</h3>
+                <p>In critical situations, our emergency support provides immediate access to medical guidance and assistance, ensuring that patients receive the urgent care they need.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact container">
+        <h1>Contact Us</h1>
+        <form id="contactForm" onsubmit="return validateForm()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your name..." required>
+            <span class="error-message" id="nameError">Please enter your name</span>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your email..." required>
+            <span class="error-message" id="emailError">Please enter a valid email</span>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
+            <span class="error-message" id="messageError">Please enter a message</span>
+
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ConnectCare. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Slider -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.getElementById('slides');
+        const dots = document.getElementsByClassName('dot');
+
+        function showSlide(n) {
+            currentSlide = n;
+            slides.style.transform = 'translateX(' + (-100 * currentSlide) + '%)';
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove('active');
+            }
+            dots[n].classList.add('active');
+        }
+
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + 4) % 4;
+            showSlide(currentSlide);
+        }
+
+        // Auto slide every 5 seconds
+        setInterval(function() {
+            currentSlide = (currentSlide + 1) % 4;
+            showSlide(currentSlide);
+        }, 5000);
+    </script>
+
+    <!-- JavaScript for Form Validation -->
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            let isValid = true;
+
+            // Name validation
+            if (name.trim() === "") {
+                document.getElementById("nameError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("nameError").style.display = "none";
+            }
+
+            // Email validation
+            let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/;
+            if (!email.match(emailPattern)) {
+                document.getElementById("emailError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("emailError").style.display = "none";
+            }
+
+            // Message validation
+            if (message.trim() === "") {
+                document.getElementById("messageError").style.display = "block";
+                isValid = false;
+            } else {
+                document.getElementById("messageError").style.display = "none";
+            }
+
+            return isValid; // Only submits if all fields are valid
+        }
+    </script>
+</body>
+</html>
